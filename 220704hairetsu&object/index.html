@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <div id="japan"></div>
+
+    <div class="loading">
+        <span class="loading07"><span></span></span>
+    </div>
+
+
+
+    <script>
+
+        let japan = document.getElementById("japan");
+
+        let a = [
+            {
+                place: "Tokyo",
+                town: "shinjuku",
+                area: "kanto",
+                new: true,
+                ruby: "東京"
+            },
+            {
+                place: "Hyogo",
+                town: "kobe",
+                area: "kansai",
+                new: true,
+                ruby: "兵庫"
+            },
+            {
+                place: "Hokkaido",
+                town: "sapporo",
+                area: "tohoku",
+                new: false,
+                ruby: "北海道"
+            },
+            {
+                place: "Shizuoka",
+                town: "izu",
+                area: "tokai",
+                new: true,
+                ruby: "静岡"
+            },
+            {
+                place: "Saitama",
+                town: "urawa",
+                area: "kanto",
+                new: false,
+                ruby: "埼玉"
+            },
+            {
+                place: "Fukuoka",
+                town: "hakata",
+                area: "kyusyu",
+                new: true,
+                ruby: "福岡"
+            },
+            {
+                place: "Osaka",
+                town: "umeda",
+                area: "kansai",
+                new: false,
+                ruby: "大阪"
+            }
+        ];
+
+        function func(data,place){
+
+            switch(data["area"]){
+                case "kanto":
+                bd = "green"
+                bg = "gre"
+                break;
+                case "kansai":
+                bd = "red"
+                bg = "re"
+                break;
+                case "tohoku":
+                bd = "blue"
+                bg = "blu"
+                break;
+                case "tokai":
+                bd = "pink"
+                bg = "pin"
+                break;
+                default:
+                bd = "orange"
+                bg = "ora"
+                break;
+            }
+            place.innerHTML += `
+                <section class="${bd} ${(data["new"])?"new":""}">
+                    <p class="${bg}">prefecture：${data["place"]}</p>
+                    <p>town：${data["town"]}</p>
+                    <p>japanese：${data["ruby"]}</p>
+                </section>`
+        };
+
+        a.forEach(function(e,i){
+            func(e,japan)
+        });
+
+        window.onload = function(){
+            setTimeout(function(){
+                let loading = document.querySelector(".loading")
+                loading.style.display = "none"
+            },1000)
+        };
+
+    </script>
+        
+</body>
+</html>

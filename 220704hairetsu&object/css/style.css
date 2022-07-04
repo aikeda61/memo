@@ -1,0 +1,181 @@
+p {
+    -webkit-margin-before: 0;
+            margin-block-start: 0;
+    -webkit-margin-after: 0;
+            margin-block-end: 0;
+    padding: 0.8rem;
+    text-align: center;
+  }
+  
+  #japan {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  #japan section {
+    margin-bottom: 1rem;
+    width: 30%;
+  }
+  
+  #japan section .gre {
+    background-color: green;
+    color: #fff;
+  }
+  
+  #japan section .re {
+    background-color: red;
+    color: #fff;
+  }
+  
+  #japan section .blu {
+    background-color: blue;
+    color: #fff;
+  }
+  
+  #japan section .pin {
+    background-color: pink;
+    color: #fff;
+  }
+  
+  #japan section .ora {
+    background-color: orange;
+    color: #fff;
+  }
+  
+  #japan .green {
+    border: 3px solid green;
+  }
+  
+  #japan .red {
+    border: 3px solid red;
+  }
+  
+  #japan .blue {
+    border: 3px solid blue;
+  }
+  
+  #japan .pink {
+    border: 3px solid pink;
+  }
+  
+  #japan .orange {
+    border: 3px solid orange;
+  }
+  
+  #japan .new {
+    position: relative;
+  }
+  
+  #japan .new::before {
+    position: absolute;
+    content: "NEW";
+    top: -10px;
+    left: -10px;
+    z-index: 1;
+    background: yellow;
+    font-size: 10px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 100%;
+    text-align: center;
+  }
+  
+  span.loading07 {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    -webkit-animation: animation07 2s linear infinite;
+    animation: animation07 2s linear infinite;
+  }
+  
+  span.loading07 span {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  span.loading07:before, span.loading07:after, span.loading07 span:before, span.loading07 span:after {
+    position: absolute;
+    display: inline-block;
+    content: " ";
+    width: 23px;
+    height: 23px;
+  }
+  
+  span.loading07:before {
+    left: 0;
+    top: 0;
+    background-image: radial-gradient(25px 25px at 25px 25px, transparent, transparent 81%, #999 82%, #999 98%, transparent);
+  }
+  
+  span.loading07:after {
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(25px 25px at -2px -2px, transparent, transparent 81%, #999 82%, #999 98%, transparent);
+  }
+  
+  span.loading07 span:before {
+    left: 0;
+    bottom: 0;
+    background-image: radial-gradient(25px 25px at 25px -2px, transparent, transparent 81%, #999 82%, #999 98%, transparent);
+  }
+  
+  span.loading07 span:after {
+    right: 0;
+    top: 0;
+    background-image: radial-gradient(25px 25px at -2px 25px, transparent, transparent 81%, #999 82%, #999 98%, transparent);
+  }
+  
+  @-webkit-keyframes animation07 {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes animation07 {
+    0% {
+      -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+              transform: rotate(360deg);
+    }
+  }
+  
+  .loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    top: 0;
+    z-index: 2;
+  }
+  /*# sourceMappingURL=0401A.css.map */
