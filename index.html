@@ -19,12 +19,15 @@
             links.forEach(function(e,i){
                 
                 e.addEventListener('click',function(event){
-                    event.preventDefault();
+                    event.preventDefault(); //aタグとしての機能をなくす。
                     let targetId =e.hash; //eの#以降を取得できる（つまりターゲット先のID名）
                     let targetElement = document.querySelector(targetId)  //上のをHTMLで取得できる
                     let targetOffsetTop = window.pageYOffset + targetElement.getBoundingClientRect().top; //上からの高さを取得できる
+                    // console.log(window.pageYOffset) 　　//0になる
+                    // console.log(targetElement.getBoundingClientRect()) 　　//topからの位置やwidthなどいろんな情報を取得できる
+                    // console.log(targetOffsetTop)
                     const header = document.querySelector('#header');
-                    let headerHeight = header.offsetHeight;
+                    let headerHeight = header.offsetHeight;   //headerの要素の高さを取得。paddingやborderを含んだ高さ
                     let totalScrollAmount = targetOffsetTop - headerHeight;
                     
                     window.scrollTo({
