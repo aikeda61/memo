@@ -13,17 +13,17 @@
 
     <script>
         window.addEventListener('load',function(){
-            let atag = document.querySelectorAll('a[href^="#"]')
+            let atag = document.querySelectorAll('a[href^="#"]') //aタグの中のhrefが、＃から始まるものだけを取得できる
             let links = Array.prototype.slice.call(atag) //console.logした時に、上だとNodelistになってしまうが、これだと普通の配列になる！
 
             links.forEach(function(e,i){
-                const header = document.querySelector('#header');
+                
                 e.addEventListener('click',function(event){
                     event.preventDefault();
-                    let targetId =e.hash; //eの#以降を取得できる
+                    let targetId =e.hash; //eの#以降を取得できる（つまりターゲット先のID名）
                     let targetElement = document.querySelector(targetId)  //上のをHTMLで取得できる
                     let targetOffsetTop = window.pageYOffset + targetElement.getBoundingClientRect().top; //上からの高さを取得できる
-                    // console.log(targetOffsetTop)
+                    const header = document.querySelector('#header');
                     let headerHeight = header.offsetHeight;
                     let totalScrollAmount = targetOffsetTop - headerHeight;
                     
