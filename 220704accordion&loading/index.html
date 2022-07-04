@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <p style="text-align: center;">配列データのhtml反映、アコーディオン、loadingをまとめたhtml</p>
+
+    <hr>
+
+    <div class="japan"></div>
+
+    <div class="loading">
+        <span class="loading10"></span>
+    </div>
+
+
+
+    <script>
+
+        let japan = document.querySelector(".japan");
+
+        let a = [
+        {
+            area: "kanto",
+            town: "tokyo",
+            new: true
+        },
+        {
+            area: "kansai",
+            town: "hyogo",
+            new: true
+        },
+        {
+            area: "kansai",
+            town: "osaka",
+            new: false
+        },
+        {
+            area: "kanto",
+            town: "saitama",
+            new: true
+        }
+        ];
+
+        function func(data,place){
+        switch(data["area"]){
+            case "kanto":
+            bg = "green"
+            bd = "gre"
+            break;
+            case "kansai":
+            bg = "red"
+            bd = "re"
+            break;
+            default: 
+            break;
+        }
+        place.innerHTML += `
+                    <section class="${bd}">
+                        <input type="button" value="${data["town"]}">
+                        <div style="display: none;" class="${bg} ${(data["new"])?"new":""}">
+                            <p>
+                                <h2>${data["town"]}</h2>
+                            </p>
+                        </div>
+                    </section>`
+        };
+
+        a.forEach(function(e,i){
+        func(e,japan)
+        });
+
+        let input = document.querySelectorAll("input")
+        input.forEach(function(e,i){
+        e.onclick = function(){
+            let box = this.closest("section").querySelector("div")
+            if(box.style.display == "none"){
+            box.style.display = "block"
+            } else {
+            box.style.display = "none"
+            }
+        }
+        });
+
+
+        function load(){
+        let loading = document.querySelector(".loading")
+        window.onload = function(){
+            setTimeout(function(){
+            loading.style.display = "none"
+            },1000)
+        }
+        };
+        load();
+    </script>
+    
+</body>
+</html>
