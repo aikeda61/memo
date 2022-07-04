@@ -4,11 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ページ内リンク：リンク先がヘッダーと被らないように調節する方法</title>
 </head>
 <body>
 
-    <p>jfdalskhalksh</p>
+    <p>ページ内リンク：リンク先がヘッダーと被らないように調節する方法</p>
+
+
+    <script>
+        window.addEventListener('load',function(){
+            let atag = document.querySelectorAll('a[href^="#"]')
+            let links = Array.prototype.slice.call(atag) //console.logした時に、上だとNodelistになってしまうが、これだと普通の配列になる！
+
+            links.forEach(function(e,i){
+                const header = document.querySelector('#header');
+                e.addEventListener('click',function(event){
+                    event.preventDefault();
+                    let targetId =e.hash; //eの#以降を取得できる
+                    let targetElement = document.querySelector(targetId)  //上のをHTMLで取得できる
+                    let targetOffsetTop = window.pageYOffset + targetElement.getBoundingClientRect().top; //上からの高さを取得できる
+                    // console.log(targetOffsetTop)
+                    let headerHeight = header.offsetHeight;
+                    let totalScrollAmount = targetOffsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: totalScrollAmount,
+                        behavior: 'smooth'
+                    })
+                })
+            })
+        })
+
+    </script>
     
 </body>
 </html>
