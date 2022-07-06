@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <!-- 
+        カレンダー作成の順序
+
+        1.曜日（日〜月）を配列でまとめる
+        2.今日を取得
+        3.2で取得した今日をもとに、今月の1日を取得
+
+        4.カレンダーを作成。calendarという関数を用意して、そこに<table>の中身全部入れていく
+          まずは曜日を<th>に入れていく。
+          次に、一行ずつ日にちを入れて行く。日にちはcountという関数を0として用意し、1ずつ足していく
+          countに加え、今月1日の曜日（getDay）・今月最終日・先月最終日・何行必要か、の5点を定義する必要あり。
+
+        5.カレンダーを表示（h1に、表示年と表示月を表示）
+
+        6.先月・来月ボタンを設置。5の表示ボタンを使って　.setMonth で表示日程を1ヶ月ずらそう
+
+        7.window.addEventListener()にて、loadを使うのを忘れずに！
+    -->
+
+    <div class="wrapper">
+
+        <h1 id="header"></h1>
+
+        <div id="next-prev-button">
+            <button id="prev" onclick="prev()">PREV</button>
+            <button id="next" onclick="next()">NEXT</button>
+        </div>
+
+        <div id="calendar"></div>
+    </div>
+
+    <script>
+        const week = ["日","月","火","水","木","金","土"];
+        let today = new Date();
+        let showDate = new Date(today.getFullYear(),today.getMonth(),1);
+
+        function create(year,month){
+            let calendar = "<table><tr class='dayOfWeek'>";
+            for(let i=0;i<week.length;i++){
+                calendar += '<th>' + week[i] + '</th>';
+            }
+            calendar += '</tr>'
+
+            let count = 0;
+            let startDayOfWeek = new Date(year,month,1).getDay();
+            let endDate = new Date(year,month+1,0).getDate();
+            let lastMonthEndDate = new Date(year,month,0).getDate();
+            let row = Math.ceil((startDayOfWeek + endDate) / week.length)
+
+            for(let i=0;i<row;i++){  //カレンダー全体が何行あるか。その数の繰り返し
+                // indexは0から始まるので、i<rowにせずi<=0にしてしまうと1つ多くなってしまう。もし2列だったら、、と考えるとわかりやすい
+                calendar += '<tr>';
+                for(let j=0;j<week.length;j++){
+                    if(i==0&&j<startDayOfWeek){
+                        //一行目で先月分の日付を設定
+                        calendar += '<td class="disabled">' + (lastMonthEndDate - startDayOfWeek + j + 1) + '</td>';
+                    } else if(count >= endDate){
+                        //　最終行で、今月最終日以降は来月の頭を表示する
+                        count++;
+                        calendar += '<td class="disabled">' + (count - endDate) + '</td>';
+                    } else {
+                        count++;
+                        if(year==today.getFullYear() && month==today.getMonth() && count==today.getDate()){
+                            //今日のカレンダーのマスだけ目立たせる
+                            calendar += '<td class="today">' + count + '</td>';
+                        } else {
+                            calendar += '<td>' + count + '</td>';
+                        }
+                    }
+                }
+                calendar += '</tr>'
+            }
+            return calendar;
+        };
+
+
+
+
+        function show(date){
+            let year = date.getFullYear();
+            let month = date.getMonth();
+            document.getElementById('header').innerHTML = year + '年' + (month+1) + '月'
+
+            let calendar = create(year,month);
+            document.querySelector('#calendar').innerHTML = calendar;
+        }
+
+        window.addEventListener('load',show(today));
+
+
+
+        function prev(){
+            showDate.setMonth(showDate.getMonth()-1);
+            show(showDate);
+        }
+
+        function next(){
+            showDate.setMonth(showDate.getMonth()+1);
+            show(showDate);
+        }
+    </script>
+    
+</body>
+</html>
