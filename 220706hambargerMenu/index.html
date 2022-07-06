@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>ハンバーガーメニューの中に、アコーディオンがあるものとないものがある場合</p>
+
+
+    <script>
+        window.addEventListener('load',function(){
+
+            let hamb = document.querySelector('.openbtn1');  //ハンバーガーのボタン
+            hamb.addEventListener('click',function(){
+                this.classList.toggle('active');  //activeの時にXマークになる
+                let gnav = document.querySelector('.globalnav');  //ハンバーガーのliの全部
+                if(this.classList.contains('active')){
+                    gnav.style.display = "block"
+                    if((window.matchMedia("(max-width:1000px)").matches)){
+                        let gnavLi = gnav.querySelectorAll('li');
+                        gnavLi.forEach(function(e,i){
+                            if(e.closest('.accordion__div') && !e.classList.contains('accordion__list')){   
+                                //親要素に.accordion__divがあり、且つそのli自身にaccordion__listがついていない場合（アコーディオンのこと）
+                                e.addEventListener('click',function(){
+                                    console.log('test')
+                                })
+                            } else {
+                                e.addEventListener('click',function(){
+                                    //ページ内リンクとなるので、ハンバーガーは閉じて、ボタンも三本線に戻す（＝activeを外す）
+                                    gnav.style.display = 'none'
+                                    hamb.classList.remove('active')
+                                })
+                            }
+                        })
+                    }
+                    
+                } else {
+                    gnav.style.display = 'none'
+                }
+            })
+
+        });
+    </script>
+    
+</body>
+</html>
