@@ -16,7 +16,7 @@
 
             let hamb = document.querySelector('.openbtn1');  //ハンバーガーのボタン
             hamb.addEventListener('click',function(){
-                this.classList.toggle('active');  //activeの時にXマークになる
+                this.classList.toggle('active');  //.activeの時にXマークになる(cssで設定)
                 let gnav = document.querySelector('.globalnav');  //ハンバーガーのliの全部
                 if(this.classList.contains('active')){
                     gnav.style.display = "block"
