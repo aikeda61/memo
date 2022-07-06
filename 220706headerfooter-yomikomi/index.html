@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>ヘッダーとフッターを別ファイルに分けた時の読み込み方</p>
+    <p>nishichiba</p>
+
+    <header>
+		<script>
+			jQuery(function($) {
+				$.ajax({
+					type: "GET",
+					url: "header.html",
+					dataType : "html"
+				})
+				.done(function(data){
+					// var data = data.split("./").join("../")
+					
+					$("header").append(data)
+					$('.toggle').click(function() {
+						$(this).toggleClass("active")
+						if($(this).hasClass('active')) {
+							$('.navbarCollapse').addClass('active')
+							$(".overlay").addClass("show")
+						} else {
+							$('.navbarCollapse').removeClass('active')
+							$(".overlay").removeClass("show")
+						}
+					})
+					$(document).click(function(e) {
+						if( $(e.target).is(".toggle, .toggle span") ){
+							//
+						}
+						else{
+							if($('.toggle').hasClass('active')) {
+								$('.navbarCollapse').removeClass('active')
+								$('.toggle').removeClass('active')
+								$(".overlay").removeClass("show")
+							}  
+						}
+					})
+				})
+			});
+		</script>
+	</header>
+
+
+    <footer>
+		<script>
+			jQuery( ($) => {
+				fetch('footer.html')
+				.then(response => response.text())
+				.then(data => $("footer").append(data))
+			})
+		</script>
+	</footer>
+    
+</body>
+</html>
