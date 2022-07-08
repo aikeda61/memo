@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>配列から最大値を取得する方法：2パターン</p>
+
+
+    <script>
+        var nums = [112, 105, 121, 111];
+
+
+        //パターン01
+        console.log( Math.max(...nums) ); // 121
+        console.log( String.fromCharCode(...nums) ); // "piyo"  これ何〜？
+
+
+        //パターン02
+        let max = nums.reduce(function(x,y){
+            return Math.max(x,y);
+        })
+        console.log(max)
+
+
+
+    </script>
+    
+</body>
+</html>
