@@ -1,4 +1,4 @@
-let name = 'anna'
+let name = 'a '
 let age = 27
 let house = 'hyogo'
 let from = 'tokyo'
