@@ -8,6 +8,40 @@
 </head>
 <body>
 
+    <header id="header" >
+        <ul>
+            <li v-for="nav in navs">
+                <a :href="nav.link">{{ nav.title }}</a>
+            </li>
+        </ul>
+    </header>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+        const { createApp } = Vue
+        createApp({
+            data(){
+                return {
+                    navs : [
+                        {
+                            title: "el01",
+                            link: "#el01"
+                        },
+                        {
+                            title: "el02",
+                            link: "#el02"
+                        },
+                        {
+                            title: "el03",
+                            link: "#el03"
+                        }
+                    ]
+                }
+            }
+        }).mount("#header")
+    </script>
+
     <main>
         <section id="el01">
             <dl v-for="(place, index) in places">
@@ -18,43 +52,94 @@
                 </dd>
             </dl>
         </section>
-    </main>
+    
 
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script>
+            createApp({
+                data(){
+                    return {
+                        // title: "",
+                        places : [
+                            {
+                                station: "urawa",
+                                prefecture: "saitama",
+                                area: "kanto"
+                            },
+                            {
+                                station: "umeda",
+                                prefecture: "osaka",
+                                area: "kansai"
+                            },
+                            {
+                                station: "tokyo",
+                                prefecture: "tokyo",
+                                area: "kanto"
+                            }
+                        ]
+                    }
+                },
+                methods: {
+                    titleFunction(x){
+                        return Object.keys(x)[0]
+                    }
+                }
+            }).mount("#el01")
+        </script>
 
+
+
+    <section id="el02">
+        <table>
+            <tr>
+                <th scope="row" v-for="(world,index) in worlds">{{getKeysFunction(world)[index]}}</th>
+            </tr>
+            <tr>
+                <td v-for="(world,index) in worlds">{{getValueFunction(world)[0]}}</td>
+            </tr>
+        </table>
+    </section>
 
     <script>
-        const { createApp } = Vue
         createApp({
             data(){
-                return {
+                return{
                     title: "",
-                    places : [
+                    worlds: [
                         {
-                            station: "urawa",
-                            prefecture: "saitama",
-                            area: "kanto"
+                            country: "japan",
+                            principal: "tokyo",
+                            area: "asia",
+                            jp: "日本"
                         },
                         {
-                            station: "umeda",
-                            prefecture: "osaka",
-                            area: "kansai"
+                            country: "germany",
+                            principal: "berlin",
+                            area: "europe",
+                            jp: "ドイツ"
                         },
                         {
-                            station: "tokyo",
-                            prefecture: "tokyo",
-                            area: "kanto"
-                        }
+                            country: "america",
+                            principal: "d.c.",
+                            area: "america",
+                            jp: "アメリカ"
+                        },
                     ]
                 }
             },
             methods: {
-                titleFunction(x){
-                    return Object.keys(x)[0]
+                getKeysFunction(x){
+                    return Object.keys(x)
+                },
+                getValueFunction(y){
+                    return Object.values(y)
                 }
             }
-        }).mount("#el01")
+        }).mount("#el02")
     </script>
+
+
+</main>
+
     
 
 </body>
