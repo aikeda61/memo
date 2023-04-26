@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue study</title>
+</head>
+<body>
+
+    <main>
+        <section id="el01">
+            <dl v-for="(place, index) in places">
+                <dt>{{titleFunction(place)}}{{index + 1}}: {{ place.station }}</dt>
+                <dd>
+                    <li>{{ place.prefecture }}</li>
+                    <li>{{ place.area }}</li>
+                </dd>
+            </dl>
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+
+    <script>
+        const { createApp } = Vue
+        createApp({
+            data(){
+                return {
+                    title: "",
+                    places : [
+                        {
+                            station: "urawa",
+                            prefecture: "saitama",
+                            area: "kanto"
+                        },
+                        {
+                            station: "umeda",
+                            prefecture: "osaka",
+                            area: "kansai"
+                        },
+                        {
+                            station: "tokyo",
+                            prefecture: "tokyo",
+                            area: "kanto"
+                        }
+                    ]
+                }
+            },
+            methods: {
+                titleFunction(x){
+                    return Object.keys(x)[0]
+                }
+            }
+        }).mount("#el01")
+    </script>
+    
+
+</body>
+</html>
