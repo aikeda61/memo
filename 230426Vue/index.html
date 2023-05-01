@@ -42,6 +42,8 @@
         }).mount("#header")
     </script>
 
+    <hr>
+
     <main>
         <section id="el01">
             <dl v-for="(place, index) in places">
@@ -51,7 +53,10 @@
                     <li>{{ place.area }}</li>
                 </dd>
             </dl>
+
+
         </section>
+
     
 
         <script>
@@ -75,7 +80,7 @@
                                 prefecture: "tokyo",
                                 area: "kanto"
                             }
-                        ]
+                        ],
                     }
                 },
                 methods: {
@@ -86,57 +91,84 @@
             }).mount("#el01")
         </script>
 
+        <hr>
 
+        <section id="el02">
+            {{worlds[0]}}
+            <!-- 表示の仕方がわからないとき、上の行みたいに表の外でデバックみたいなことをしたらわかりやすい！ -->
+            <table>
+                <tr>
+                    <th scope="row" v-for="(element, index) in worlds[0]">{{index}}</th>
+                </tr>
+                <tr v-for="world in worlds">
+                    <td v-for="value in world">{{value}}</td>
+                </tr>
+            </table>
+        </section>
 
-    <section id="el02">
-        <!-- まだ途中！ -->
-        <table>
-            <tr>
-                <th scope="row" v-for="(world,index) in worlds">{{getKeysFunction(world)[index]}}</th>
-            </tr>
-            <tr>
-                <td v-for="(world,index) in worlds">{{getValueFunction(world)[0]}}</td>
-            </tr>
-        </table>
-    </section>
-
-    <script>
-        createApp({
-            data(){
-                return{
-                    title: "",
-                    worlds: [
-                        {
-                            country: "japan",
-                            principal: "tokyo",
-                            area: "asia",
-                            jp: "日本"
-                        },
-                        {
-                            country: "germany",
-                            principal: "berlin",
-                            area: "europe",
-                            jp: "ドイツ"
-                        },
-                        {
-                            country: "america",
-                            principal: "d.c.",
-                            area: "america",
-                            jp: "アメリカ"
-                        },
-                    ]
-                }
-            },
-            methods: {
-                getKeysFunction(x){
-                    return Object.keys(x)
+        <script>
+            createApp({
+                data(){
+                    return{
+                        title: "",
+                        worlds: [
+                            {
+                                country: "japan",
+                                principal: "tokyo",
+                                area: "asia",
+                                jp: "日本"
+                            },
+                            {
+                                country: "germany",
+                                principal: "berlin",
+                                area: "europe",
+                                jp: "ドイツ"
+                            },
+                            {
+                                country: "america",
+                                principal: "d.c.",
+                                area: "america",
+                                jp: "アメリカ"
+                            },
+                        ]
+                    }
                 },
-                getValueFunction(y){
-                    return Object.values(y)
+                methods: {
+                    getKeysFunction(x){
+                        return Object.keys(x)
+                    },
+                    getValueFunction(y){
+                        return Object.values(y)
+                    }
                 }
-            }
-        }).mount("#el02")
-    </script>
+            }).mount("#el02")
+        </script>
+
+        <hr>
+
+        <section id="el03">
+
+            <input type="text" v-model="prefecture">
+            <input type="submit" value="submit" @click="submitFunction">
+        </section>
+
+        <script>
+
+            createApp({
+                data(){
+                    return {
+                        prefecture : ""
+                    }
+                },
+                methods: {
+                    submitFunction(){
+                        console.log(this.prefecture)
+                    }
+                }
+            }).mount("#el03")
+        </script>
+
+
 
 
 </main>
