@@ -1,0 +1,19 @@
+.el04__dl {
+    display: flex;
+    justify-content: space-between;
+    dl {
+            border-top: 1px solid gray;
+            border-left: 1px solid gray;
+            width: calc(100%/6);
+        dt {
+            border-bottom: 1px solid gray;
+            border-right: 1px solid gray;
+            height: 70px;
+        }
+        dd {
+            border-bottom: 1px solid gray;
+            border-right: 1px solid gray;
+            margin-inline-start: 0px;
+        }
+    }
+}

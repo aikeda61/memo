@@ -15,5 +15,7 @@
 .el04__dl dl dd {
   border-bottom: 1px solid gray;
   border-right: 1px solid gray;
-  margin-inline-start: 0px;
+  -webkit-margin-start: 0px;
+          margin-inline-start: 0px;
 }
+/*# sourceMappingURL=style.css.map */

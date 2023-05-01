@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue study</title>
+    <link rel="stylesheet" href="./public/css/style.css">
 </head>
 <body>
 
@@ -168,7 +169,76 @@
             }).mount("#el03")
         </script>
 
+        <hr>
 
+        <section id="el04">
+            <h2>下処理</h2>
+
+
+            <div v-for="menu in menus" class="el04__dl">
+                <dl v-for="(value,key) in menu">
+                    <!-- {{menu}} -->
+                    <dt>{{key}}</dt>
+                    <dd v-for="price in value">{{price}}</dd>
+                </dl>
+            </div>
+
+            
+        </section>
+
+        <script>
+            createApp({
+                data(){
+                    return {
+                        menus : [
+                            {
+                                "魚" : [
+                                    "1kg以下/1枚",
+                                    "3kg以下/1枚",
+                                    "5kg以下/1枚",
+                                    "5kgオーバー"
+                                ],
+                                "水洗い" : [
+                                    "500円",
+                                    "600円",
+                                    "800円",
+                                    "1000円"
+                                ],
+                                "3枚おろし" : [
+                                    "800円",
+                                    "1000円",
+                                    "1000円",
+                                    "1500円"
+                                ],
+                                "アラ処理(兜割り)": [
+                                    "＋280円",
+                                    "＋380円",
+                                    "＋500円",
+                                    "＋600円"
+                                ],
+                                "切り身・開き加工": [
+                                    "＋380円",
+                                    "＋680円",
+                                    "＋900円",
+                                    "＋1500円"
+                                ],
+                                "真空パックプロトン冷凍" : [
+                                    "＋500円",
+                                    "＋700円",
+                                    "＋900円",
+                                    "＋1200円"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }).mount("#el04")
+        </script>
+
+
+        <hr>
+
+        <section ></section>
 
 
 </main>
