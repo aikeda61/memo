@@ -238,7 +238,96 @@
 
         <hr>
 
-        <section ></section>
+        <section id="el05">
+
+            <div v-for="option in options" class="el05__div">
+                <dl v-for="(value, key) in option">
+                    <dt>{{key}}</dt>
+                    <dd>
+                        <div v-for="details in value">
+                            <div v-for="detail in details" class="dd-div">
+                                <div v-for="element in detail">
+                                    <p v-if="element">{{element}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+        </section>
+
+        <script>
+            createApp({
+                data(){
+                    return {
+                        options : [
+                            {
+                                "白イカ・スルメイカ" : [
+                                    {
+                                        1 : [
+                                        "皮むき・ゲソそうじ",
+                                        "1杯",
+                                        "480円"
+                                        ]
+                                    },
+                                    {
+                                        2 : [
+                                            "刺身",
+                                            "1杯",
+                                            "680円"
+                                        ]
+                                    }
+                                ],
+                                "甲イカ・アオリイカ" : [
+                                    {
+                                        1 : [
+                                        "皮むき・ゲソそうじ",
+                                        "1杯",
+                                        "680円"
+                                        ]
+                                    },
+                                    {
+                                        2 : [
+                                            "刺身",
+                                            "1杯",
+                                            "680円"
+                                        ]
+                                    },
+                                    {
+                                        3 : [
+                                            "墨抜き・個別イカ袋包装",
+                                            "1杯",
+                                            "380円"
+                                        ]
+                                    },
+                                    {
+                                        4 : [
+                                            "墨抜き・スキンパック・リキッド急速冷凍※1",
+                                            "",
+                                            ""
+                                        ]
+                                    }
+                                ],
+                                "ふぐ" : [
+                                    {
+                                        1 : [
+                                            "身欠き・真空パック",
+                                            "",
+                                            "1000円/kg"
+                                        ],
+                                        2 : [
+                                            "身欠き・真空パック・プロトン冷凍",
+                                            "",
+                                            "1500円/kg"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }).mount("#el05")
+        </script>
 
 
 </main>

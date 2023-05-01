@@ -17,3 +17,24 @@
   border-right: 1px solid gray;
   margin-inline-start: 0px;
 }
+
+.el05__div dl {
+  display: flex;
+  border-bottom: 1px solid aquamarine;
+}
+.el05__div dl dt {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.el05__div dl dd {
+  width: 75%;
+}
+.el05__div dl .dd-div {
+  display: flex;
+}
+.el05__div dl .dd-div div {
+  width: 33.3333333333%;
+  border-left: 1px solid aquamarine;
+}

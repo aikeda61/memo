@@ -17,3 +17,26 @@
         }
     }
 }
+
+.el05__div {
+    dl {
+        display: flex;
+        border-bottom: 1px solid aquamarine;
+        dt {
+            width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        dd {
+            width: 75%;
+        }
+        .dd-div {
+            display: flex;
+            div {
+                width: calc(100% / 3);
+                border-left: 1px solid aquamarine;
+            }
+        }
+    }
+}
