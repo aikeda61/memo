@@ -1,3 +1,97 @@
+.pc {
+  display: block !important;
+}
+@media screen and (max-width: 481px) {
+  .pc {
+    display: none !important;
+  }
+}
+
+.sp {
+  display: none !important;
+}
+@media screen and (max-width: 481px) {
+  .sp {
+    display: block !important;
+  }
+}
+
+.none {
+  display: none !important;
+}
+
+section {
+  margin: 30px 0;
+}
+
+#header {
+  background-color: burlywood;
+  position: fixed;
+  width: 100%;
+}
+#header ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+#header .hamberger .hamberger-box {
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  position: relative;
+}
+#header .hamberger .hamberger-box.active span:nth-child(1) {
+  transform: translate(-50%, 600%) rotate(45deg);
+  transition-duration: 1s;
+}
+#header .hamberger .hamberger-box.active span:nth-child(2) {
+  display: none;
+}
+#header .hamberger .hamberger-box.active span:nth-child(3) {
+  transform: translate(-50%, -390%) rotate(-45deg);
+  transition-duration: 1s;
+}
+#header .hamberger .hamberger-box span {
+  width: 30px;
+  height: 2px;
+  background-color: #000;
+  display: block;
+  position: absolute;
+}
+#header .hamberger .hamberger-box span:nth-child(1) {
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#header .hamberger .hamberger-box span:nth-child(2) {
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#header .hamberger .hamberger-box span:nth-child(3) {
+  top: 34px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#header .sp-nav li:nth-child(odd) {
+  background-color: lightgoldenrodyellow;
+}
+#header .sp-nav li:nth-child(even) {
+  background-color: burlywood;
+}
+#header .sp-nav li a {
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+#el01 {
+  padding-top: 56px;
+}
+
+#el03 input {
+  border: 1px solid #000;
+}
+
 .el04__dl {
   display: flex;
   justify-content: space-between;

@@ -5,14 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue study</title>
+    <link rel="stylesheet" href="./css/destyle.css">
     <link rel="stylesheet" href="./public/css/style.css">
 </head>
 <body>
 
     <header id="header" >
-        <ul>
+        <ul class="pc">
             <li v-for="nav in navs">
                 <a :href="nav.link">{{ nav.title }}</a>
+            </li>
+        </ul>
+        <div class="hamberger sp" ref="hambbtn">
+            <div class="hamberger-box">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <ul class="sp none sp-nav">
+            <li v-for="nav in navs">
+                <a :href="nav.link">{{nav.title}}</a>
             </li>
         </ul>
     </header>
@@ -36,8 +49,53 @@
                         {
                             title: "el03",
                             link: "#el03"
+                        },
+                        {
+                            title: "el04",
+                            link: "#el04"
+                        },
+                        {
+                            title: "el05",
+                            link: "#el05"
                         }
                     ]
+                }
+            },
+            mounted(){
+                window.onload = () => {
+                    this.clickOff()
+                    this.closeFunction()
+                }
+            },
+            created(){
+            },
+            methods:{
+                closeFunction(){
+                    let hamb = document.querySelector(".hamberger-box");
+                    let spnav = document.querySelector(".sp-nav")
+
+                    hamb.addEventListener('click',() => {
+
+                        hamb.classList.toggle('active')
+
+                        if(hamb.classList.contains('active')){
+                            spnav.classList.remove('none')
+                        } else {
+                            spnav.classList.add('none')
+                        }
+                    })
+                },
+                clickOff(){
+                    let li = document.querySelectorAll(".sp-nav li")
+                    let spnav = document.querySelector(".sp-nav")
+
+                    li.forEach(function(e,i){
+                        e.addEventListener('click',function(){
+                            let hamb = document.querySelector(".hamberger-box");
+                            hamb.classList.remove('active')
+                            spnav.classList.add('none')
+                        })
+                    })
                 }
             }
         }).mount("#header")
