@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="./css/destyle.css">
     <link rel="stylesheet" href="./public/css/style.css">
 </head>
-<body>
+<body id="app">
 
-    <header id="header" >
+    <header id="header" ref="header">
         <ul class="pc">
             <li v-for="nav in navs">
                 <a :href="nav.link">{{ nav.title }}</a>
@@ -65,9 +65,11 @@
                 window.onload = () => {
                     this.clickOff()
                     this.closeFunction()
+                    this.headerFunction()
                 }
             },
             created(){
+                this.newFunction()
             },
             methods:{
                 closeFunction(){
@@ -96,9 +98,17 @@
                             spnav.classList.add('none')
                         })
                     })
+                },
+                headerFunction(){
+                    let headerH = this.$refs.header;
+                    console.log(headerH)
+                },
+                newFunction(){
+                    console.log(this.$refs.header)
                 }
+
             }
-        }).mount("#header")
+        }).mount("#app")
     </script>
 
     <hr>
