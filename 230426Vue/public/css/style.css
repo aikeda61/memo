@@ -21,7 +21,10 @@
 }
 
 section {
-  margin: 30px 0;
+  margin-bottom: 30px;
+}
+section:not(#el01) {
+  margin-top: 30px;
 }
 
 #header {
@@ -33,6 +36,9 @@ section {
   display: flex;
   justify-content: space-around;
   list-style: none;
+}
+#header ul a {
+  display: block;
 }
 #header .hamberger .hamberger-box {
   width: 50px;

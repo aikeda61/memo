@@ -65,7 +65,7 @@
                 window.onload = () => {
                     this.clickOff()
                     this.closeFunction()
-                    this.headerFunction()
+                    this.atagFunction()
                 }
             },
             created(){
@@ -99,12 +99,29 @@
                         })
                     })
                 },
-                headerFunction(){
-                    let headerH = this.$refs.header;
-                    console.log(headerH)
-                },
                 newFunction(){
                     console.log(this.$refs.header)
+                },
+                atagFunction(){
+                    let atags = document.querySelectorAll('#header ul li a')
+                    console.log(atags)
+                    let links = []
+                    atags.forEach(function(e,i){
+                        if(e.hash){
+                            links.push(e.hash)
+                        }
+                        e.addEventListener('click',function(event){
+                            links.forEach(function(ele,ind){
+                                if(e.hash == ele){
+                                    event.preventDefault();
+                                }
+                                ele.addEventListener('click',function(){
+                                    console.log(ele.getBoundingClientRect())
+                                })
+                            })
+                        })
+                    })
+                    console.log(links)
                 }
 
             }
@@ -152,9 +169,25 @@
                         ],
                     }
                 },
+                mounted(){
+
+                    // window.onload =() =>{
+                    //     this.headerFunction()
+                    // }
+                    window.addEventListener('load',this.headerFunction)
+                    window.addEventListener('resize',this.headerFunction)
+
+                },
+                created(){
+                },
                 methods: {
                     titleFunction(x){
                         return Object.keys(x)[0]
+                    },
+                    headerFunction(){
+                        let headerH = document.getElementById('header').clientHeight
+                        let el01 = document.getElementById('el01')
+                        el01.style.paddingTop = headerH + 'px'
                     }
                 }
             }).mount("#el01")
