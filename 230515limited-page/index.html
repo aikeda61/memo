@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <main>
+        <section class="login" >
+
+            <div class="wrap" >
+                <p>資料請求者様限定ページです。<br><span>専用パスワードを入力して下さい。</span></p>
+                <div class="form">
+                    <div id="app">
+                        <div data-pass="password" id="pass"></div>
+
+                        <input type="password" v-model="passInput" class="form-control" required @keyup.enter="onLogin"/><br>
+                        <button @click="onLogin" class="btn btn-primary">ログインする</button>
+
+                        <div class="login-false" v-if="isError === true">
+                            <div class="pop">
+                                <div class="popBox">
+                                    <div>
+                                        <img src="imgs/x_1.png" alt="">
+                                    </div>
+                                    <p>パスワードが間違っています</p>
+
+                                    <button @click="onClose" id="ok">OK</button>
+                                </div>
+                            </div>
+                        </div>			
+                    </div>
+                    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+                    <script src="./js/login.js"></script>
+        
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+</body>
+</html>
