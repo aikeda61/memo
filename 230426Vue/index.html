@@ -108,16 +108,19 @@
                     let links = []
                     atags.forEach(function(e,i){
                         if(e.hash){
+                            //  ページ外へのリンクが混ざった時にもしおかしくなったらこのifは消して中身だけ残す
                             links.push(e.hash)
                         }
                         e.addEventListener('click',function(event){
                             links.forEach(function(ele,ind){
+                                let target = ele.currentTarget
+                                console.log(target)
                                 if(e.hash == ele){
                                     event.preventDefault();
                                 }
-                                ele.addEventListener('click',function(){
-                                    console.log(ele.getBoundingClientRect())
-                                })
+                                // ele.addEventListener('click',function(){
+                                //     console.log(ele.getBoundingClientRect())
+                                // })
                             })
                         })
                     })
