@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue study</title>
     <link rel="stylesheet" href="./css/destyle.css">
-    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body id="app">
 
@@ -103,30 +103,29 @@
                     console.log(this.$refs.header)
                 },
                 atagFunction(){
-                    let atags = document.querySelectorAll('#header ul li a')
-                    console.log(atags)
-                    let links = []
+                    let atags = document.querySelectorAll('#header ul li a[href^="#"]');
                     atags.forEach(function(e,i){
-                        if(e.hash){
-                            //  ページ外へのリンクが混ざった時にもしおかしくなったらこのifは消して中身だけ残す
-                            links.push(e.hash)
-                        }
                         e.addEventListener('click',function(event){
-                            links.forEach(function(ele,ind){
-                                let target = ele.currentTarget
-                                console.log(target)
-                                if(e.hash == ele){
-                                    event.preventDefault();
-                                }
-                                // ele.addEventListener('click',function(){
-                                //     console.log(ele.getBoundingClientRect())
-                                // })
+                            event.preventDefault();
+                            let targetId = e.hash;
+                            let targetElement = document.querySelector(targetId);
+                            let targetOffsetTop = window.pageYOffset + targetElement.getBoundingClientRect().top;
+                            if (window.matchMedia('(max-width: 481px)').matches){
+                                let header = document.querySelector('.hamberger')
+                            } else {
+                                let header = document.querySelector('#header')
+                            }
+                            let headerHeight = header.offsetHeight;
+                            let totalScrollAmount = targetOffsetTop - headerHeight;
+                            console.log(headerHeight)
+
+                            window.scrollTo({
+                                top: totalScrollAmount,
+                                behavior: 'smooth'
                             })
                         })
                     })
-                    console.log(links)
                 }
-
             }
         }).mount("#app")
     </script>
