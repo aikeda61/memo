@@ -104,18 +104,16 @@
                 },
                 atagFunction(){
                     let atags = document.querySelectorAll('#header ul li a[href^="#"]');
+                    let head = (window.matchMedia('(max-width: 481px)').matches) ? document.querySelector('.hamberger') : document.querySelector('#header');
                     atags.forEach(function(e,i){
                         e.addEventListener('click',function(event){
                             event.preventDefault();
                             let targetId = e.hash;
                             let targetElement = document.querySelector(targetId);
                             let targetOffsetTop = window.pageYOffset + targetElement.getBoundingClientRect().top;
-                            if (window.matchMedia('(max-width: 481px)').matches){
-                                let header = document.querySelector('.hamberger')
-                            } else {
-                                let header = document.querySelector('#header')
-                            }
-                            let headerHeight = header.offsetHeight;
+                            
+                            console.log(head)
+                            let headerHeight = head.offsetHeight;
                             let totalScrollAmount = targetOffsetTop - headerHeight;
                             console.log(headerHeight)
 
