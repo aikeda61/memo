@@ -13,4 +13,18 @@ main {
             }
         }
     }
+    ol {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        li {
+            width: calc((100% - 1rem * 3 ) /4);
+            figure {
+                width: 100%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
 }

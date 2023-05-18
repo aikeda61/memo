@@ -12,10 +12,18 @@
 
     <main id="app">
         <ul>
+            <!-- ulの中身をシャッフル -->
             <li v-for="img in imgs">
                 <figure><img :src="`./img/img${img}.jpg`" alt=""></figure>
             </li>
         </ul>
+
+        <ol>
+            <!-- olの中身はシャッフルしてない。Vueで表示のみ -->
+            <li v-for="index in 8">
+                <figure><img :src="`./img/img0${index}.jpg`" alt=""></figure>
+            </li>
+        </ol>
     </main>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -36,7 +44,7 @@
             },
             methods:{
                 shuffleFunction(){
-                    let nodelis = document.querySelectorAll('li')
+                    let nodelis = document.querySelectorAll('ul li')
                     let lis = Array.from(nodelis)
                     let ul = document.querySelector('ul')
                     lis.sort(() => Math.random() - 0.5)

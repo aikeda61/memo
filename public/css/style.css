@@ -12,3 +12,17 @@ main ul li figure {
 main ul li figure img {
   width: 100%;
 }
+main ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+main ol li {
+  width: calc((100% - 3rem) / 4);
+}
+main ol li figure {
+  width: 100%;
+}
+main ol li figure img {
+  width: 100%;
+}
