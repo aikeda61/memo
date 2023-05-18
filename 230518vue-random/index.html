@@ -38,9 +38,9 @@
                 }
             },
             mounted(){
-                window.onload = () => {
+                window.addEventListener('load',()=>{
                     this.shuffleFunction()
-                }
+                })
             },
             methods:{
                 shuffleFunction(){
