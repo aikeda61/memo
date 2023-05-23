@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/destyle.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+    <section>
+        <p>aaaaaaa</p>
+    </section>
+    
+    <section>
+        <div class="l-hero">
+            <div class="l-hero-wrapper" id="wrapper">
+                <div class="l-hero-panel l-hero-panel-01 panel" id="panel01">
+                    <p class="l-hero-panel__contents">Panel 1/4</p>
+                </div>
+                <div class="l-hero-panel l-hero-panel-02 panel" id="panel02">
+                    <p class="l-hero-panel__contents">Panel 2/4</p>
+                </div>
+                <div class="l-hero-panel l-hero-panel-03 panel" id="panel03">
+                    <p class="l-hero-panel__contents">Panel 3/4</p>
+                </div>
+                <div class="l-hero-panel l-hero-panel-04 panel" id="panel04">
+                    <p class="l-hero-panel__contents">Panel 4/4</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <p>kkkkkkkkkk</p>
+    </section>
+
+    <section>
+        <div class="el01">
+            <div class="wrap02" id="wrap">
+                <div class="wrap-panel">
+                    <figure><img src="../img/img01.jpg" alt=""></figure>
+                    <p>image 01</p>
+                </div>
+                <div class="wrap-panel">
+                    <figure><img src="../img/img02.jpg" alt=""></figure>
+                    <p>image 02</p>
+                </div>
+                <div class="wrap-panel">
+                    <figure><img src="../img/img03.jpg" alt=""></figure>
+                    <p>image 03</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+
+    <script>
+        const wrapper = document.querySelector('#wrapper');
+        if(wrapper) {
+            // gsap.registerPlugin(ScrollTrigger); // npm/yarnの際に必要
+            const panels = gsap.utils.toArray('.panel');
+            const wrapperWidth = wrapper.offsetWidth;
+            /**
+            * 横スクロール開始
+            */
+            gsap.to( panels, {
+                xPercent: -100 * (panels.length - 1), // transformX
+                ease: "none", // easingの設定
+                scrollTrigger: { // scrollTrigger
+                    trigger: wrapper, // アニメーションの対象となる要素
+                    pin: true, // 要素を固定する
+                    scrub: 1, // スクロールとアニメーションを同期させる。数値で秒数の設定に
+                    snap: { // スナップスクロールにする
+                        snapTo: 1 / ( panels.length - 1 ), // スナップで移動させる位置
+                        duration: {min: .4, max: .6}, // スナップで移動する際の遅延時間
+                        ease: "none" // easing
+                    },
+                    end: () => "+=" + wrapperWidth // アニメーションの終了タイミング
+                }
+            })
+        }
+
+    </script>
+
+
+    <script>
+
+        const wrap = document.querySelector('#wrap');
+        if(wrapper) {
+            // gsap.registerPlugin(ScrollTrigger); // npm/yarnの際に必要
+            const panel = gsap.utils.toArray('.wrap-panel');
+            const wrapWidth = wrap.offsetWidth;
+            /**
+            * 横スクロール開始
+            */
+            gsap.to( panel, {
+                xPercent: -100 * (panel.length - 1), // transformX
+                ease: "none", // easingの設定
+                scrollTrigger: { // scrollTrigger
+                    trigger: wrap, // アニメーションの対象となる要素
+                    pin: true, // 要素を固定する
+                    scrub: 1, // スクロールとアニメーションを同期させる。数値で秒数の設定に
+                    snap: { // スナップスクロールにする
+                        snapTo: 1 / ( panel.length - 1 ), // スナップで移動させる位置
+                        duration: {min: .4, max: .6}, // スナップで移動する際の遅延時間
+                        ease: "none" // easing
+                    },
+                    end: () => "+=" + wrapWidth // アニメーションの終了タイミング
+                }
+            })
+        }
+    </script>
+
+
+    
+</body>
+</html>
