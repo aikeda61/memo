@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/destyle.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://codepen.io/GreenSock/pen/7ba936b34824fefdccfe2c6d9f0b740b.css">
+
+</head>
+<body>
+
+    <div class="description panel blue">
+        <div><h1>Layered pinning</h1>
+          <p>Use pinning to layer panels on top of each other as you scroll.</p>
+          <div class="scroll-down">Scroll down<div class="arrow"></div></div>
+        </div>
+      </div>
+      
+      
+      <section class="panel red">
+          ONE
+      </section>
+      <section class="panel orange" style="height: 220vh">
+          TWO
+      </section>
+      <section class="panel purple" style="height: 50vh">
+          THREE
+      </section>
+      <section class="panel green">
+          FOUR
+      </section>
+      
+      
+      
+      
+      
+      <header>
+         <a href="https://greensock.com/scrolltrigger">
+           <img class="greensock-icon" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/scroll-trigger-logo-light.svg" width="200" height="64" />
+        </a> 
+      </header>
+
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=cahcebustin"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollTrigger.min.js"></script>
+    <script src="https://codepen.io/GreenSock/pen/7ba936b34824fefdccfe2c6d9f0b740b.js"></script>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+let panels = gsap.utils.toArray(".panel");
+// we'll create a ScrollTrigger for each panel just to track when each panel's top hits the top of the viewport (we only need this for snapping)
+let tops = panels.map(panel => ScrollTrigger.create({trigger: panel, start: "top top"}));
+
+panels.forEach((panel, i) => {
+  ScrollTrigger.create({
+    trigger: panel,
+    start: () => panel.offsetHeight < window.innerHeight ? "top top" : "bottom bottom", // if it's shorter than the viewport, we prefer to pin it at the top
+    pin: true, 
+    pinSpacing: false 
+  });
+});
+
+ScrollTrigger.create({
+  snap: {
+    snapTo: (progress, self) => {
+      let panelStarts = tops.map(st => st.start), // an Array of all the starting scroll positions. We do this on each scroll to make sure it's totally responsive. Starting positions may change when the user resizes the viewport
+          snapScroll = gsap.utils.snap(panelStarts, self.scroll()); // find the closest one
+      return gsap.utils.normalize(0, ScrollTrigger.maxScroll(window), snapScroll); // snapping requires a progress value, so convert the scroll position into a normalized progress value between 0 and 1
+    },
+    duration: 0.5
+  }
+});
+
+
+    </script>
+
+    
+</body>
+</html>
