@@ -1,0 +1,151 @@
+.wrap {
+    padding: 0 1rem;
+    max-width: calc(1000px + 2rem);
+    margin: 0 auto;
+}
+
+.stab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 50px;
+}
+
+@media screen and (max-width:768px){
+    .stab {
+        height: auto;
+    }
+}
+
+.stab li {
+    width: calc(100% / 6);
+    height: 100%;
+    display: flex;
+    background-color: #88847d;
+    line-height: 1.4;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    text-align: center;
+    border-right: 1px solid #fff;
+    color: #fff;
+    font-weight: bold;
+}
+
+@media screen and (max-width:768px){
+    .stab li {
+        width: calc(100% / 3);
+        font-size: clamp(14px,calc(100vw*16/768),16px);
+        height: 36px;
+        border-bottom: 1px solid #fff;
+    }
+}
+
+.stab.s1 .s1, 
+.stab.s2 .s2, 
+.stab.s3 .s3, 
+.stab.s4 .s4, 
+.stab.s5 .s5, 
+.stab.s6 .s6 {
+    background-color: #b7b6b3;
+}
+
+.sec9a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.sec9a dt {
+    width: 70%;
+}
+
+@media screen and (max-width:768px){
+    .sec9a dt {
+        width: 100%;
+    }
+}
+
+.sec9a dd {
+    width: 30%;
+}
+
+@media screen and (max-width:768px){
+    .sec9a dd {
+        width: 100%;
+    }
+}
+
+.sec9a dd .moreinfo0 {
+    background-color: #fff;
+    position: relative;
+    padding: 15px;
+    z-index: 15;
+    height: 400px;
+    width: 100%;
+}
+
+@media screen and (max-width:768px){
+    .sec9a dd .moreinfo0 {
+        height: 200px;
+    }
+}
+
+.sec9a dd .moreinfo0 .moreinfo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: auto;
+}
+
+.sec9a dd ul li {
+    cursor: pointer;
+    padding: 4px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sec9a dd ul li dl {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sec9a dd ul li dl dt {
+    width: 24px;
+}
+
+.sec9a dd ul li dl dt img {
+    display: block;
+    vertical-align: bottom;
+    width: 100%;
+}
+
+.sec9a dd ul li dl dd {
+    width: calc(100% - 30px);
+}
+
+.sec9a dd ul li dl dd h4 {
+    color: #877F64;
+    text-align: left;
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.5em;
+    font-feature-settings: "pwid";
+    letter-spacing: 0;
+}
+
+.sec9a dd ul li dl dd p {
+    font-size: 12px;
+    color: #000;
+}
+
+.p-access__map {
+    width: 100%;
+    height: 400px;
+}
