@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+    crossorigin="anonymous"
+    />
+</head>
+<body>
+    <table class="table table-striped" id="table">
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        const url = "./organizations-1002.csv"
+        fetch(url)
+        .then((response) => response.text())
+        .then((data) => {
+            data = data.split("\r\n") // 行ごとに分割する
+            data.forEach((element,index) => {
+                let col = element.split(",") // 列ごとに分割する
+                
+                if( index === 0 ){ // 一行目をタイトルにする
+                    table.querySelector('thead').innerHTML += `
+                        <tr>
+                            <th>${col[0]}</th>
+                            <th>${col[1]}</th>
+                            <th>${col[2]}</th>
+                            <th>${col[3]}</th>
+                            <th>${col[4]}</th>
+                            <th>${col[5]}</th>
+                            <th>${col[6]}</th>
+                            <th>${col[7]}</th>
+                            <th>${col[8]}</th>
+                        </tr>
+                    `
+                }
+                else{ // 二行目以降をtdに入れていく
+                    table.querySelector('tbody').innerHTML += `
+                        <tr>
+                            <td>${col[0]}</td>
+                            <td>${col[1]}</td>
+                            <td>${col[2]}</td>
+                            <td>${col[3]}</td>
+                            <td>${col[4]}</td>
+                            <td>${col[5]}</td>
+                            <td>${col[6]}</td>
+                            <td>${col[7]}</td>
+                            <td>${col[8]}</td>
+                        </tr>
+                    `
+                }
+            })
+            return data
+        })
+        .then( (data)=>{
+            console.log(data)
+        })
+    </script>
+</body>
+</html>
