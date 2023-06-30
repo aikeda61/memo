@@ -1,0 +1,100 @@
+section {
+	display: flex;
+}
+.one {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	min-height: 100vh;
+	padding: 20px;
+}
+.bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background-position: center center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0;
+	transition: all 0.5s ease 0s;
+	z-index: -1;
+}
+.show .bg {
+	opacity: 1;
+}
+.bg._01 {
+	background-image: url("../img/img01.jpg");
+}
+.bg._02 {
+	background-image: url("../img/img02.jpg");
+}
+.bg._03 {
+	background-image: url("../img/img03.jpg");
+}
+.bg._04 {
+	background-image: url("../img/img04.jpg");
+}
+.bg._05 {
+	background-image: url("../img/img05.jpg");
+}
+.onebox {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+	background: #ffffff;
+}
+.onebox img {
+	width: 100%;
+	height: auto;
+	vertical-align: top;
+	margin-bottom: 15px;
+}
+.onebox p {
+	text-align: center;
+	margin: 0;
+}
+
+/*==================
+base
+==================*/
+
+html {
+	box-sizing: border-box;
+	overflow-y: scroll;
+	-webkit-text-size-adjust: 100%;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+body {
+	font-family: YuGothic, "游ゴシック体", "Yu Gothic", "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-size: 14px;
+	line-height: 1.8;
+	margin: 0;
+	word-break: break-word;
+}
+p._a {
+	font-size: 12px;
+	font-weight: bold;
+	margin: 30px 0 0;
+}
+p._a .link {
+	display: inline-block;
+	color: #607D8B;
+	padding-left: 1.3em;
+	text-indent: -1.3em;
+}
+p._a .link:before {
+	content: '';
+	display: inline-block;
+	width: 5px;
+	height: 5px;
+	border-top: 2px solid #607D8B;
+	border-right: 2px solid #607D8B;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	margin-right: 10px;
+}

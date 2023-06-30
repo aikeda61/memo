@@ -90,7 +90,6 @@ span.loading10:after {
     -webkit-transform: rotate(360deg);
   }
 }
-
 @keyframes animation10 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -101,7 +100,6 @@ span.loading10:after {
     transform: rotate(360deg);
   }
 }
-
 .loading {
   position: absolute;
   width: 100%;
@@ -118,4 +116,5 @@ span.loading10:after {
   align-items: center;
   top: 0;
 }
+
 /*# sourceMappingURL=style.css.map */

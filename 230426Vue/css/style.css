@@ -111,8 +111,7 @@ section:not(#el01) {
 .el04__dl dl dd {
   border-bottom: 1px solid gray;
   border-right: 1px solid gray;
-  -webkit-margin-start: 0px;
-          margin-inline-start: 0px;
+  margin-inline-start: 0px;
 }
 
 .el05__div dl {
@@ -134,5 +133,4 @@ section:not(#el01) {
 .el05__div dl .dd-div div {
   width: 33.3333333333%;
   border-left: 1px solid aquamarine;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
