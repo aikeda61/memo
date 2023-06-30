@@ -84,7 +84,7 @@ window.addEventListener('load',function(){
                     new google.maps.Size(140, 82),
                     new google.maps.Point(0,0),
                     // new google.maps.Point(25,82)
-                )
+                ),
             map: map
         });
         $('.stab').addClass('s1');
