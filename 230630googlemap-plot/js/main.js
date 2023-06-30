@@ -61,7 +61,17 @@ window.addEventListener('load',function(){
         var latlng1 = new google.maps.LatLng(32.741101,129.871906);
         var gmapop1 = {
             zoom: 15,
-            center: latlng1
+            center: latlng1,
+            styles : [
+                {
+                    stylers : [
+                        {
+                            'saturation' : -90,
+                            'hue' : '#88847d'
+                        }
+                    ]
+                }
+            ]
         };
         map = new google.maps.Map(document.getElementById('js-access-map'), gmapop1);
         marker0 = new google.maps.Marker({
@@ -74,7 +84,7 @@ window.addEventListener('load',function(){
                     new google.maps.Size(140, 82),
                     new google.maps.Point(0,0),
                     // new google.maps.Point(25,82)
-                ),
+                )
             map: map
         });
         $('.stab').addClass('s1');
