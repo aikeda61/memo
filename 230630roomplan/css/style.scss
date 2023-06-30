@@ -1,0 +1,383 @@
+@use "../../common/css/common";
+
+.el01 {
+    // background-image: url('../img/bg.jpg');
+    background-color: #fff;
+    padding: 100px 0;
+    background-size: cover;
+    .wrap {
+        margin: 0 auto;
+        // background-color: #fff;
+        h3 {
+            text-align: center;
+            padding-bottom: 100px;
+            font-size: 28px;
+            @media screen and (max-width:768px) {
+                font-size: 24px;
+                line-height: 35px;
+                padding-bottom: 70px;
+            }
+        }
+        ul {
+            // background-color: #dcdcdc;
+            // padding: 20px;
+            li {
+                background: rgba(255, 255, 255);
+                border-top: 1px solid #958c81;
+                &:last-child {
+                    border-bottom: 1px solid #958c81;
+                }
+                &:hover {
+                    background: rgba(255,255,255,1);
+                }
+                a {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 1rem;
+                    position: relative;
+                    @media screen and (max-width: 768px){
+                        // flex-wrap: wrap;
+                        flex-direction: column;
+                        align-items: baseline;
+                    }
+                    .el01__plan {
+                        &-type {
+                            font-style: italic;
+                            font-size: 35px;
+                            position: relative;
+                            display: block;
+                            width: fit-content;
+                            flex: 1;
+                            @media screen and (max-width: 768px){
+                                max-width: clamp(120px,calc(100vw*150/768),150px);
+                                margin-bottom: 10px;
+                            }
+                        }
+                        &-ldk {
+                            font-size: 30px;
+                            font-weight: bold;
+                            flex: 2;
+                            @media screen and (max-width: 768px){
+                                // max-width: calc(100% - clamp(120px,calc(100vw*150/768),150px));
+                                font-size: clamp(25px,calc(100vw*30/768),30px);
+                            }
+                            span {
+                                font-size: clamp(15px,calc(100vw*20/768),20px);
+                            }
+                            
+                        }
+                        &-ab {
+                            font-style: normal;
+                            font-size: clamp(12px,calc(100vw*14/1000),14px);
+                            // white-space: wrap;
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 5px;
+                            margin-top: 10px;
+                            @media screen and (max-width: 768px){
+                                width: 100%;
+                                margin: 0.5rem 0;
+                            }
+                            p {
+                                color: #fff;
+                                background-color: rgba(136,132,125,0.9) ;
+                                display: inline-block;
+                                padding: 0.2rem 0.5rem;
+                                margin-right: 0.5rem;
+                                font-weight: normal;
+                            }
+                        }
+                        &-ab.pc{
+                            @media screen and (max-width:768px) {
+                                display: none;
+                            }
+                        }
+                        &-ab.sp{
+                            display: none;
+                            @media screen and (max-width:768px) {
+                                display: flex;
+                            }
+                        }
+                        &-detail {
+                            flex: 3;
+                            font-size: 15px;
+                            .el01__plan-senyu{
+                                padding-bottom: 8px;
+                                span{
+                                    font-size: 30px;
+                                }
+                            }
+                            .el01__plan-balcony,
+                            .el01__plan-service{
+                                padding-bottom: 8px;
+                            }
+                            @media screen and (max-width: 768px){
+                                width: 100%;
+                                flex: auto;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 5px 0 5px 10px;
+                        border-color: transparent transparent transparent #947F64;
+                        right: 1rem;
+                        top: 50%;
+                        right: 1%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+        .kome{
+            margin-top: 20px;
+            font-size: 13px;
+            text-shadow: 0 0 5px white;
+        }
+    }
+}
+
+// roomplanA.htmlなど詳細ページ
+
+.roomplan {
+    // background: url('../img/bg.jpg');
+    padding: 100px 1rem;
+    background-size: cover;
+    @media screen and (max-width: 768px){
+        padding: 50px 1rem;
+    }
+    .wrap {
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 50px 1rem;
+        @media screen and (max-width: 768px){
+            padding: 1rem;
+        }
+        .roomplan__flex {
+            display: flex;
+            gap: 1rem;
+            @media screen and (max-width: 768px){
+                flex-direction: column;
+            }
+            &-left {
+                flex: 1;
+                figure {
+                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+            &-right {
+                flex: 1;
+                .roomplan {
+                    &__ab {
+                        font-style: normal;
+                        font-size: clamp(12px,calc(100vw*14/1000),14px);
+                        // white-space: nowrap;
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 5px;
+                        @media screen and (max-width: 768px){
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 5px;
+                        }
+                        p {
+                            color: #fff;
+                            background-color: rgba(136,132,125,0.9) ;
+                            display: inline-block;
+                            padding: 0.2rem 0.5rem;
+                            // margin-right: 0.5rem;
+
+                        }
+                    }
+                    &__type {
+                        font-style: italic;
+                        font-size: 50px;
+                        margin: 1rem 0;
+                        @media screen and (max-width: 768px){
+                            max-width: clamp(120px,calc(100vw*150/768),150px);
+                        }
+                    }
+                    &__ldk {
+                        font-size: 30px;
+                        font-weight: bold;
+                        @media screen and (max-width: 768px){
+                            // max-width: calc(100% - clamp(120px,calc(100vw*150/768),150px));
+                            font-size: clamp(25px,calc(100vw*30/768),30px);
+                        }
+                        span {
+                            font-size: clamp(15px,calc(100vw*20/768),20px);
+                        }
+                    }
+                    &__detail {
+                        font-size: 15px;
+                        margin: 1rem 0;
+                        @media screen and (max-width:768px) {
+                            font-size: 14px;
+                        }
+                        p {
+                            padding-left: 1rem;
+                            position: relative;
+                            &::before {
+                                position: absolute;
+                                content: '';
+                                width: 10px;
+                                height: 10px;
+                                left: 0;
+                                top: 3px;
+                                background-color: rgba(136,132,125,0.9) ;
+                            } 
+                        }
+                        .roomplan__senyu{
+                            padding-bottom: 15px;
+                            line-height: 26px;
+                            span{
+                                font-size: 30px;
+                            }
+                            &::before{
+                                top: 18px;
+                            }
+                        }
+                        .roomplan__balcony,
+                        .roomplan__service{
+                            padding-bottom: 8px;
+                        }
+                        @media screen and (max-width:768px){
+                            width: 100%;
+                        }
+                    }
+                    &__feature {
+                        li {
+                            padding-left: 1rem;
+                            position: relative;
+                            line-height: 28px;
+                            padding-bottom: 10px;
+                            @media screen and (max-width:768px) {
+                                font-size: 14px;
+                                line-height: 26px;
+
+                            }
+                            &:not(:first-child){
+                                margin-top: 0.5rem;
+                            }
+                            &::before {
+                                position: absolute;
+                                content: '';
+                                width: 10px;
+                                height: 2px;
+                                left: 1px;
+                                top: 13px;
+                                background-color: gray;
+                            } 
+                        }
+                    }
+                }
+            }
+        }
+        .roomplan__button {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 100px;
+            @media screen and (max-width: 768px){
+                flex-direction: column;
+                margin-top: 50px;
+            }
+            p {
+                position: relative;
+                @media screen and (max-width: 768px){
+                    width: fit-content;
+                    margin: 0 auto;
+                }
+                a {
+                    background-color: rgba(100,100,100,1);
+                    color: #fff;
+                    width: 300px;
+                    display: block;
+                    text-align: center;
+                    height: 60px;
+                    line-height: 60px;
+                    font-weight: bold;
+                    letter-spacing: 0.1em;
+                    @media screen and (max-width: 768px){
+                        width: 250px;
+                        height: 50px;
+                        line-height: 50px;
+                        font-size: 14px;
+                    }
+                    &:hover {
+                        background-color: rgba(100,100,100,0.7);
+                    }
+                }
+                &:nth-child(1){
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        border-right: 2px solid #fff;
+                        border-bottom: 2px solid #fff;
+                        top: 50%;
+                        right: 1rem;
+                        transform: translateY(-50%) rotate(-45deg);
+                        width: 10px;
+                        height: 10px;
+                    }
+                }
+                &:nth-child(2){
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        border-top: 2px solid #fff;
+                        top: 50%;
+                        right: 1rem;
+                        transform: translateY(-5px) rotate(45deg);
+                        width: 20px;
+                        height: 20px;
+                        z-index: 1zs;
+                    }
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        border-top: 2px solid #fff;
+                        top: 50%;
+                        right: 0.15rem;
+                        transform: translateY(-5px) rotate(-45deg);
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+            }
+        }
+        .notes{
+            font-size: 13px;
+            // margin-top: 20px;
+        }
+    }
+}
+
+@media print{
+    header,
+    footer,
+    .roomplan__button{
+        display: none;
+    }
+    .map{
+        padding:20px 0 0 ;
+        .inner{
+            .border{
+                margin: 0;
+            }    
+        }
+    }
+    @page {
+		size: A4;
+		// margin: 12.7mm 9.7mm;
+	}
+}

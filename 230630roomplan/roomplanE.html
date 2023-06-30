@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roomplan</title>
+<link rel="stylesheet" href="./css/style.css">
+
+
+</head>
+        
+    <body id="app">
+
+
+    <section class="roomplan">
+        
+        <div class="wrap">
+
+            <div class="roomplan__flex">
+                <!-- <div class="roomplan__flex-left" style="background-color: lightcyan;">このdiv消してfigureいれる</div> -->
+                <div class="roomplan__flex-left">
+                    <figure v-for="plan in plans">
+                        <img  v-if="plan.p01 == 'E'" :src="`./img/${plan.p01}type.png`" alt="">
+                    </figure>
+                </div>
+                
+                <div class="roomplan__flex-right">
+                    <div v-for="plan in plans">
+                        <div v-if="plan.p01 == 'E'">
+                            <div class="roomplan__ab">
+                                <p class="roomplan__topfloor" v-if="plan.最上階プレミアムプラン">最上階プレミアムプラン</p>
+                                <p class="roomplan__kado" v-if="plan.南西角住戸">南西角住戸</p>
+                                <p class="roomplan__loan" v-if="plan.住宅ローン控除適用可">住宅ローン控除適用可</p>
+                                
+                            </div>
+                            <div class="roomplan__type">{{ plan.p01 }}type</div>
+                            <div class="roomplan__ldk">{{ plan.p02 }}<span>+{{ plan.p02span }}</span></div>
+                            <div class="roomplan__detail">
+                                <p class="roomplan__senyu">専有面積：<span>{{ plan.senyu[0] }}</span>㎡(約{{plan.senyu[1]}}坪)<br>
+                                    （備蓄倉庫{{ plan.service[0] }}㎡/約{{plan.service[1]}}坪含む）</p>
+                                <!-- <p class="roomplan-service">（備蓄倉庫<span>{{ plan.service[0] }}</span>㎡/約{{plan.service[1]}}坪含む）</p> -->
+                                <p class="roomplan__balcony">バルコニー面積：<span>{{ plan.balcony[0] }}</span>㎡(約{{plan.balcony[1]}}坪)</p>
+                            </div>
+                            <ul class="roomplan__feature">
+                                <li v-for="feature in plan.features" v-if="plan.features" v-html="feature"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="notes">
+                ※N：納戸  ※WIC：ウォークインクロゼット  ※SIC：シューズインクロゼット<br>
+                ※掲載の間取りは設計段階のものであり、今後変更になる場合があります。
+            </p>
+
+
+            <div class="roomplan__button">
+                <p><a href="javascript:void(0);" onclick="window.print();">印刷する</a></p>
+                <p><a href="javascript:void(0);" onclick="window.close();">このページを閉じる</a></p>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/roomplan.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roomplan</title>
+<link rel="stylesheet" href="./css/style.css">
+
+
+</head>
+<body id="app">
+
+    <section class="el01">
+        <div class="wrap panel">
+            <h3>全邸南向き、各階2~4邸の<br class="sp">プライバシーに配慮した<br class="sp">フロアプラン。</h3>
+
+            <ul class="el01__plan">
+                <li v-for="plan in plans">
+                    <a :href="`./roomplan${plan.p01}.html`" target="_blank">
+                        <div class="el01__plan-type">
+                            {{ plan.p01 }}type
+                        </div>
+
+                        <div class="el01__plan-ldk">
+                            {{ plan.p02 }}<span>+{{ plan.p02span }}</span>
+                            <div class="el01__plan-ab pc">
+                                <p class="el01__plan-topfloor" v-if="plan.最上階プレミアムプラン">最上階プレミアムプラン</p>
+                                <p class="el01__plan-kado" v-if="plan.南西角住戸">南西角住戸</p>
+                                <p class="el01__plan-loan" v-if="plan.住宅ローン控除適用可">住宅ローン控除適用可</p>
+                            </div>
+                            <div class="el01__plan-ab sp">
+                                <p class="el01__plan-topfloor" v-if="plan.最上階プレミアムプラン">最上階プレミアムプラン</p>
+                                <p class="el01__plan-kado" v-if="plan.南西角住戸">南西角住戸</p>
+                                <p class="el01__plan-loan" v-if="plan.住宅ローン控除適用可">住宅ローン控除適用可</p>
+                            </div>
+    
+                        </div>
+
+
+                        <div class="el01__plan-detail">
+                            <p class="el01__plan-senyu">専有面積：<span>{{ plan.senyu[0] }}</span>㎡(約{{plan.senyu[1]}}坪)</p>
+                            <p class="el01__plan-service" v-if="plan.service">（備蓄倉庫<span>{{ plan.service[0] }}</span>㎡/約{{plan.service[1]}}坪含む）</p>
+                            <p class="el01__plan-balcony">バルコニー面積：<span>{{ plan.balcony[0] }}</span>㎡(約{{plan.balcony[1]}}坪)</p>
+                            <!-- <p class="el01__plan-service" v-if="plan.service">サービススペース面積：<span>{{ plan.service[0] }}</span>㎡(約{{plan.service[1]}}坪)</p> -->
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+            <p class="kome">※掲載の間取りは設計段階のものであり、今後変更になる場合があります。</p>
+
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/roomplan.js"></script>
+
+
+
+</body>
+</html>
