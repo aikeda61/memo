@@ -1,4 +1,4 @@
 window.addEventListener('load',()=> {
-    let load = document.getElementById('loading')
+    let load = document.querySelector('.loading')
     load.classList.add('finishLoading')
 })

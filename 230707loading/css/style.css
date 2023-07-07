@@ -1,17 +1,18 @@
 main {
-  max-width: 1032px;
+  max-width: 432px;
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
 }
 main figure {
   width: 100%;
+  margin-bottom: 1rem;
 }
 main figure img {
   width: 100%;
 }
 
-#loading {
+.loading {
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -19,30 +20,66 @@ main figure img {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #eee;
+  background-color: #efefef;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
-#loading-icon {
-  border: 4px solid #f15186;
-  border-top: 4px solid #ffffff;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin: auto;
-  animation: spin 2s linear infinite;
+.loading figure {
+  width: 130px;
+  display: block;
+  margin-bottom: 1rem;
 }
-
-@keyframes spin {
+.loading figure img {
+  width: 100%;
+}
+.loading .dot-flashing {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: gray;
+  color: gray;
+  animation: dot-flashing 1s infinite linear alternate;
+  animation-delay: 0.5s;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.loading .dot-flashing::before, .loading .dot-flashing::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+.loading .dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: gray;
+  color: gray;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+.loading .dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: gray;
+  color: gray;
+  animation: dot-flashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+@keyframes dot-flashing {
   0% {
-    transform: rotate(0deg);
+    background-color: gray;
   }
-  100% {
-    transform: rotate(360deg);
+  50%, 100% {
+    background-color: rgba(53, 53, 53, 0.2);
   }
 }
+
 .finishLoading {
   opacity: 0;
   visibility: hidden;
