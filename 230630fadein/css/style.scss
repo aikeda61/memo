@@ -1,4 +1,76 @@
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .el01 {
     background: url('../../img/img01.jpg');
-
 }
+
+.el02 {
+    background: url('../../img/img02.jpg');
+}
+
+.el03 {
+    background: url('../../img/img03.jpg');
+}
+
+.el04 {
+    background: url('../../img/img04.jpg');
+}
+
+p {
+    padding: clamp(1rem,calc(100vw*80/1000),5rem);
+    animation: slideFromRightBox 3.0s ease 0s normal;
+}
+
+
+@keyframes slideFromRightBox {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0;
+    }
+    // 90% {
+    //     opacity: 1;
+    // }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
