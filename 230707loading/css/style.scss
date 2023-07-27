@@ -87,6 +87,16 @@ $color02 : rgba(53,53,53,0.2);
 
 
 .finishLoading {
-    opacity: 0;
-    visibility: hidden;
+    
+    animation: fadeout-animation 1s forwards;
+    @keyframes fadeout-animation {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+            visibility: hidden;
+        }
+    }    
+
 }

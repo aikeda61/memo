@@ -81,6 +81,14 @@ main figure img {
 }
 
 .finishLoading {
-  opacity: 0;
-  visibility: hidden;
+  animation: fadeout-animation 1s forwards;
+}
+@keyframes fadeout-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
 }/*# sourceMappingURL=style.css.map */
